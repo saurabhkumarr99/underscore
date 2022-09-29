@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="Underscore.js"></script>
+    <style>
+        body {
+            background-color: antiquewhite;
+            text-align: center;
+            font-size: 25px;
+            padding-top: 50px;
+        }
+
+        .container {
+            border: solid black 3px;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        button {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        var arr1 = new Array();
+    </script>
+</head>
+
+<body>
+    <h1>Arrays Methods in Underscore Javascript</h1>
+
+    <!-- Uniq -->
+    <div class="container" id="box2">
+
+        <script>
+            function fun1() {
+                arr1.push(document.getElementById("inp1_1").value);
+                document.getElementById("box1_1").innerHTML = "arr1 :" + arr1;
+            }
+
+            function fun2() {
+                document.getElementById("box2_1").innerHTML = `Uniq elements of arr1 :${_.uniq(arr1)}`;
+            }
+        </script>
+
+        <h3>Unique(_.uniq[])</h3>
+        Push Element : <input type="text" id="inp1_1"> <button id="btn1" onclick="fun1()">Push</button>
+        <div id="box1_1"></div>
+        <button onclick="fun2()">Uniq Element of array</button>
+        <div id="box2_1"></div>
+    </div>
+
+    <!-- range -->
+    <div class="container" id="box3">
+
+        <script>
+            function fun3() {
+                var start_num = document.getElementById("inp3_1").value;
+                var end_num = document.getElementById("inp3_1").value;
+                var increment = document.getElementById("inp3_1").value;
+                var res = _.range(start_num, end_num, increment);
+                document.getElementById("box3_1").innerHTML = `range :${res}`;
+            }
+        </script>
+
+        <h3>range _.range(Starting Number, Ending Number, Increment)</h3>
+        <input type="text" id="inp3_1"> <input type="text" id="inp3_2"> <input type="text" id="inp3_3"><br>
+        <button onclick="fun3()">create range of array</button>
+        <div id="box3_1"></div>
+    </div>
+
+    <!-- union -->
+    <div class="container" id="box4">
+
+        <script>
+            var arr2 = new Array();
+            var arr3 = new Array();
+            var arr4 = new Array();
+
+            function fun4_1(n) {
+                if (n == 2) {
+                    arr2.push(document.getElementById("inp4_1").value);
+                    document.getElementById("box4_1").innerHTML = `arr2 : ${arr2}`;
+                } else if (n == 3) {
+                    arr3.push(document.getElementById("inp4_2").value);
+                    document.getElementById("box4_2").innerHTML = `arr3 : ${arr3}`;
+                } else {
+                    arr4.push(document.getElementById("inp4_3").value);
+                    document.getElementById("box4_3").innerHTML = `arr4 : ${arr4}`;
+                }
+
+            }
+
+            function fun4_2() {
+
+                document.getElementById("box4_4").innerHTML = `union of arr2, arr3, arr4 :${_.union(arr2, arr3, arr4)}`;
+            }
+        </script>
+
+        <h3>union_.union()</h3>
+        <input type="text" id="inp4_1"> <button onclick="fun4_1(2)">Push in arr2</button> <br>
+        <input type="text" id="inp4_2"> <button onclick="fun4_1(3)">Push in arr3</button> <br>
+        <input type="text" id="inp4_3"> <button onclick="fun4_1(4)">Push in arr4</button> <br>
+        <button onclick="fun4_2()">union of arrays</button>
+        <div id="box4_1"></div>
+        <div id="box4_2"></div>
+        <div id="box4_3"></div><br>
+        <div id="box4_4"></div>
+    </div>
+
+    <!-- intersection -->
+    <div class="container" id="box5">
+
+        <script>
+            var arr7 = [
+                {
+                    "fname": "First User",
+                    "lname": "user lname",
+                    "uname": "user1",
+                    "password": "1234",
+                    "email": "saurabhkumarr99@gmail.com",
+                    "id": 1
+                },
+                {
+                    "fname": "Second User",
+                    "lname": "abc",
+                    "uname": "user2",
+                    "password": "1234",
+                    "email": "saurabhkumarr99@gmail.com",
+                    "id": 2
+                },
+                {
+                    "fname": "User3",
+                    "lname": "sdfg",
+                    "uname": "user3",
+                    "password": "1234",
+                    "email": "saurabhkumarr99@gmail.com",
+                    "id": 3
+                },
+                {
+                    "fname": "Fourth User",
+                    "lname": "wdefgh",
+                    "uname": "user4",
+                    "password": "1234",
+                    "email": "saurabhku",
+                    "id": 4
+                }
+            ];
+            var arr8 = [
+                
+                {
+                    "fname": "Fourth User",
+                    "lname": "wdefgh",
+                    "uname": "user4",
+                    "password": "1234",
+                    "email": "saurabhku",
+                    "id": 4
+                }
+            ];
+            function fun5() {
+                 document.getElementById("box5_1").innerHTML = `intersection of arr2, arr3, arr4 :${_.intersection(arr2, arr3, arr4)}`;
+            }
+
+            function fun5_2() {
+                document.getElementById("box5_2").innerHTML = `intersection of arr7, arr8 :${_.intersection(arr7, arr8)}`;
+            }
+        </script>
+
+
+        <h3>intersection _.intersection()</h3>
+        <button onclick="fun5()">intersection of arrays of numbers</button><br>
+        <div id="box5_1"></div>
+        <button onclick="fun5_2()">intersection of arrays of objects</button>
+        <div id="box5_2"></div>
+    </div>
+
+    <!-- difference -->
+    <div class="container" id="box6">
+        <script>
+
+            function fun6(n1, n2) {
+                if (n1 == 2 && n2 == 3) {
+                    document.getElementById("box6_1").innerHTML = `difference of arr2, arr3:${_.difference(arr2, arr3)}`;
+                } else if (n1 == 3 && n2 == 4) {
+                    document.getElementById("box6_2").innerHTML = `difference of  arr3, arr4 :${_.difference(arr3, arr4)}`;
+                } else {
+                    document.getElementById("box6_3").innerHTML = `difference of arr2, arr4 :${_.difference(arr2, arr4)}`;
+                }
+            }
+
+        </script>
+
+        <h3>difference _.difference()</h3>
+        <button onclick="fun6(2,3)">difference of arr2 and arr3</button>
+        <div id="box6_1"></div>
+        <button onclick="fun6(3,4)">difference of arr2 and arr3</button>
+        <div id="box6_2"></div>
+        <button onclick="fun6(2,4)">difference of arr2 and arr3</button>
+        <div id="box6_3"></div>
+
+    </div>
+
+    <div class="container" id="box7"></div>
+
+</body>
+
+</html>
